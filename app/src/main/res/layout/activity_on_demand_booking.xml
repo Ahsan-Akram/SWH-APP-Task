@@ -60,13 +60,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Language*"
-                    android:textColor="@color/purple_700"
+                    android:textColor="@color/yellow_primary"
                     android:textSize="16sp" />
 
                 <AutoCompleteTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/purple_700"
+                    android:backgroundTint="@color/yellow_primary"
                     android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
                     android:hint="Select Language" />
             </LinearLayout>
@@ -84,13 +84,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Interpreter Gender*:"
-                    android:textColor="@color/purple_700"
+                    android:textColor="@color/yellow_primary"
                     android:textSize="16sp" />
 
                 <AutoCompleteTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/purple_700"
+                    android:backgroundTint="@color/yellow_primary"
                     android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
                     android:hint="Gender" />
 
@@ -109,13 +109,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Service user Number"
-                    android:textColor="@color/purple_700"
+                    android:textColor="@color/yellow_primary"
                     android:textSize="16sp" />
 
                 <AutoCompleteTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/purple_700"
+                    android:backgroundTint="@color/yellow_primary"
                     android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
                     android:hint="e.g 44 7000 0000 000" />
 
@@ -134,13 +134,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Brief time:"
-                    android:textColor="@color/purple_700"
+                    android:textColor="@color/yellow_primary"
                     android:textSize="16sp" />
 
                 <AutoCompleteTextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/purple_700"
+                    android:backgroundTint="@color/yellow_primary"
                     android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
                     android:hint="Select Brief Time" />
 
@@ -156,7 +156,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Guests:"
-                    android:textColor="@color/purple_700"
+                    android:textColor="@color/yellow_primary"
                     android:textSize="16sp" />
 
                 <TextView
@@ -165,7 +165,7 @@
                     android:layout_weight="1"
                     android:gravity="end"
                     android:text="0/2"
-                    android:textColor="@color/purple_700"
+                    android:textColor="@color/yellow_primary"
                     android:textSize="16sp" />
 
             </LinearLayout>

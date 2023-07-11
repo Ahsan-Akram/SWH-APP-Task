@@ -1,5 +1,6 @@
 package com.example.myapplication;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,6 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -21,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
         TextView passwordView = findViewById(R.id.login_password);
 
 
+
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,15 +39,30 @@ public class LoginActivity extends AppCompatActivity {
         singinBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                signIn();
+                String email = emailView.getText().toString();
+                String password = passwordView.getText().toString();
+
+                signIn(email,password);
             }
         });
     }
 
-    private void signIn() {
+    private void signIn(String email,String password) {
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+        auth.signInWithEmailAndPassword(email,password)
+                .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if(task.isSuccessful()){
+                            Toast.makeText(LoginActivity.this, "Signin Successful", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(getApplicationContext(), OnDemandBookingActivity.class);
+                            startActivity(intent);
+                        }else{
+                            Toast.makeText(LoginActivity.this, "Signin Failed", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
-        Intent intent = new Intent(this, OnDemandBookingActivity.class);
-        startActivity(intent);
     }
 
     private void launchSignUpActivity() {
