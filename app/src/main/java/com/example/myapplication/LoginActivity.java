@@ -28,7 +28,6 @@ public class LoginActivity extends AppCompatActivity {
         TextView passwordView = findViewById(R.id.login_password);
 
 
-
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,24 +40,28 @@ public class LoginActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String email = emailView.getText().toString();
                 String password = passwordView.getText().toString();
-
-                signIn(email,password);
+                if (email.isEmpty() || password.isEmpty()) {
+                    return;
+                }
+                signIn(email, password);
             }
         });
     }
 
-    private void signIn(String email,String password) {
+    private void signIn(String email, String password) {
         FirebaseAuth auth = FirebaseAuth.getInstance();
-        auth.signInWithEmailAndPassword(email,password)
+        auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
+                        if (task.isSuccessful()) {
                             Toast.makeText(LoginActivity.this, "Signin Successful", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(getApplicationContext(), OnDemandBookingActivity.class);
                             startActivity(intent);
-                        }else{
-                            Toast.makeText(LoginActivity.this, "Signin Failed", Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else {
+
+                            Toast.makeText(LoginActivity.this, "Signin Failed: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/delete_task"
+        android:id="@+id/add_guest"
         android:title="Add Guest"
         app:showAsAction="always" />
 

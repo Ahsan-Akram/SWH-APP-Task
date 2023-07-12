@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".OnDemandBookingActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -12,29 +13,55 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent">
 
-        <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/tool_bar"
-            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            app:menu="@menu/top_app_bar"
-            app:navigationIcon="@drawable/arrow_back_24"
-            app:navigationIconTint="@color/white"
-            app:title="OnDemand Booking"
-            app:titleTextColor="@color/white" />
+            android:layout_height="50dp"
+            android:background="@color/white"
+            android:elevation="2dp"
+            app:navigationIcon="@drawable/baseline_arrow_back_ios_new_24"
+
+            app:titleTextColor="@color/yellow_secondry">
+
+            <TextView
+                android:id="@+id/toolbar_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="OnDemand Booking"
+                android:textColor="@color/yellow_secondry"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+
+                android:id="@+id/toolbar_title1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_marginEnd="5dp"
+                android:text="Add Guest"
+                android:textColor="@color/yellow_secondry"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+        </androidx.appcompat.widget.Toolbar>
+
     </com.google.android.material.appbar.AppBarLayout>
 
     <ScrollView
+        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:layout_below="@id/app_bar_layout">
+        android:layout_below="@id/app_bar_layout"
+        android:background="@color/white"
+
+        >
 
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
 
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/white"
             android:orientation="vertical"
             android:padding="16dp">
@@ -64,11 +91,14 @@
                     android:textSize="16sp" />
 
                 <AutoCompleteTextView
+                    android:id="@+id/odm_language"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/yellow_primary"
                     android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
-                    android:hint="Select Language" />
+                    android:hint="Select Language"
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
             </LinearLayout>
 
             <LinearLayout
@@ -81,6 +111,7 @@
                 android:padding="5dp">
 
                 <TextView
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Interpreter Gender*:"
@@ -88,11 +119,15 @@
                     android:textSize="16sp" />
 
                 <AutoCompleteTextView
+                    android:id="@+id/odm_gender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/yellow_primary"
                     android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
-                    android:hint="Gender" />
+                    android:hint="Gender"
+
+                    android:imeOptions="actionNext"
+                    android:inputType="text" />
 
             </LinearLayout>
 
@@ -112,12 +147,16 @@
                     android:textColor="@color/yellow_primary"
                     android:textSize="16sp" />
 
-                <AutoCompleteTextView
+                <EditText
+                    android:id="@+id/odm_service_user_number"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/yellow_primary"
-                    android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
-                    android:hint="e.g 44 7000 0000 000" />
+                    android:hint="e.g 44 7000 0000 000"
+
+                    android:imeOptions="actionNext"
+                    android:inputType="text"
+                    android:maxLines="1" />
 
             </LinearLayout>
 
@@ -138,11 +177,14 @@
                     android:textSize="16sp" />
 
                 <AutoCompleteTextView
+                    android:id="@+id/odm_brief_time"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/yellow_primary"
                     android:drawableEnd="@drawable/baseline_keyboard_arrow_down_24"
-                    android:hint="Select Brief Time" />
+                    android:hint="Select Brief Time"
+                    android:imeOptions="actionDone"
+                    android:inputType="text" />
 
             </LinearLayout>
 
@@ -160,27 +202,29 @@
                     android:textSize="16sp" />
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="end"
                     android:text="0/2"
                     android:textColor="@color/yellow_primary"
                     android:textSize="16sp" />
-
             </LinearLayout>
-            <Space
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1" />
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/btn_background_round"
-                android:text="Find Interpreter"
-                android:textAllCaps="false"
-                android:layout_gravity="bottom"
-                android:textColor="@color/white" />
         </LinearLayout>
+
     </ScrollView>
+
+    <Button
+        android:id="@+id/odm_find_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/btn_background_round"
+        android:padding="10dp"
+        android:text="Find Interpreter"
+        android:textAllCaps="false"
+        android:textColor="@color/white" />
+
 </RelativeLayout>
