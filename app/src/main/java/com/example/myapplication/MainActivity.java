@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        Intent loginActivityIntent = new Intent(getApplicationContext(),OnDemandBookingActivity.class);
+        Intent loginActivityIntent = new Intent(getApplicationContext(), OnDemandBookingActivity.class);
         startActivity(loginActivityIntent);
         finish();
 

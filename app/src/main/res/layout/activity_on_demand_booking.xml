@@ -5,6 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:context=".OnDemandBookingActivity">
 
     <com.google.android.material.appbar.AppBarLayout
@@ -36,10 +38,12 @@
 
                 android:id="@+id/toolbar_title1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="end"
                 android:layout_marginEnd="5dp"
+                android:gravity="center"
                 android:text="Add Guest"
+
                 android:textColor="@color/yellow_secondry"
                 android:textSize="18sp"
                 android:textStyle="bold" />
@@ -48,16 +52,19 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <ScrollView
+        android:overScrollMode="always"
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/app_bar_layout"
-        android:background="@color/white">
+        android:background="@color/white"
+
+        android:fillViewport="true">
 
         <LinearLayout
 
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:background="@color/white"
             android:orientation="vertical"
             android:padding="16dp">
@@ -65,6 +72,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:text="Please provide information about your OnDemand booking."
                 android:textColor="@color/black"
                 android:textSize="16sp" />
@@ -202,20 +210,38 @@
                     android:textSize="16sp" />
 
                 <TextView
+                    android:id="@+id/odm_guests_count"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="0/2"
+                    android:text="0/5"
                     android:textColor="@color/yellow_primary"
                     android:textSize="16sp" />
+
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="46dp">
+
+                <ListView
+                    android:id="@+id/odm_listView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    />
+            </LinearLayout>
+
+
         </LinearLayout>
 
     </ScrollView>
 
     <Button
         android:id="@+id/odm_find_btn"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -226,5 +252,6 @@
         android:text="Find Interpreter"
         android:textAllCaps="false"
         android:textColor="@color/white" />
+
 
 </RelativeLayout>
