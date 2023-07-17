@@ -37,7 +37,7 @@ public class OnDemandBookingActivity extends AppCompatActivity implements Guests
 
         genderView.setOnClickListener(b -> genderView.showDropDown());
         genderView.setOnFocusChangeListener((view, hasFocus) -> {
-            if (hasFocus) {
+            if (hasWindowFocus()) {
                 genderView.showDropDown();
             }
         });
@@ -48,7 +48,7 @@ public class OnDemandBookingActivity extends AppCompatActivity implements Guests
         languageView.setAdapter(languageAdapter);
         languageView.setOnClickListener(b -> languageView.showDropDown());
         languageView.setOnFocusChangeListener((view, hasFocus) -> {
-            if (hasFocus) {
+            if (hasWindowFocus()) {
                 languageView.showDropDown();
             }
         });
@@ -62,7 +62,7 @@ public class OnDemandBookingActivity extends AppCompatActivity implements Guests
         briefTimeView.setAdapter(briefTimeAdapter);
         briefTimeView.setOnClickListener(b -> briefTimeView.showDropDown());
         briefTimeView.setOnFocusChangeListener((view, hasFocus) -> {
-            if (hasFocus) {
+            if (hasWindowFocus()) {
                 briefTimeView.showDropDown();
             }
         });
